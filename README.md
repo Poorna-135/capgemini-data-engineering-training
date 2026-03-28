@@ -1,1 +1,1 @@
-g
+This repository contains all the things we've learned in the data training up to [current phase].Phase 1: [Phase Name]Topics covered:SELECTFILTERGROUP BYJOINsKey learnings:Understanding GROUP BY and its applicationsWriting effective JOINsChallenges faced:Grasping the concept of GROUP BYHandling complex JOIN scenarios

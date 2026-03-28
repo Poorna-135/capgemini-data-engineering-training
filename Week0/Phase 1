@@ -1,2 +1,9 @@
 In phase 1 we have learnt basic querying in pyspark and did an SQL and Pyspark querying
+we have 
+Learned:
+- select, filter, groupBy
+- SQL to PySpark mapping
 
+Challenges:
+- understanding groupBy
+- writing joins in PySpark

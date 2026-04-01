@@ -1,0 +1,8 @@
+1--->
+from pyspark.sql import SparkSession 
+from pyspark.sql.functions import*
+spark = SparkSession.builder.appName('Spark Playground').getOrCreate()
+options = {"inferschema": True, "header": True}
+df = spark.read.format("csv").options(**options).load("/datasets/customers_raw.csv")
+df = df.filter((df.customer_id.isNotNull() & df.email.isNotNull()))
+display(df)

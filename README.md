@@ -8,20 +8,22 @@ WEEK 0:
     
 --->Phase 1:
 
-Topics covered: SELECT, FILTER, GROUP BY
+📚Topics covered: SELECT, FILTER, GROUP BY
 
-Key learnings: Understanding GROUP BY and its applications 
+✅Key learnings: Understanding GROUP BY and its applications 
                SQL to PySpark mapping
               
-Challenges faced :Grasping the concept of GROUP BY 
+⚠️Challenges faced :Grasping the concept of GROUP BY 
                   Writing joins in pyspark
 
 --->Phase 2:
-📚 Topics Covered
+
+
+📚 Topics Covered:
 Joins and aggregations in PySpark, mapping SQL queries to DataFrame operations.
 
-✅ Key Learnings
+✅ Key Learnings:
 Learned to use join(), groupBy(), sum(), avg(), filter(), and orderBy(), and understood how SQL logic translates to PySpark.
 
-⚠️ Challenges
+⚠️ Challenges:
 Faced difficulty with writing correct join conditions, understanding join types, and applying multiple aggregations together

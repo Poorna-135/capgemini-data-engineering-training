@@ -39,3 +39,80 @@ df_conditional = df.withColumn(
 )
 #display(df.select("column1", "column2", "column3"))
 display(df_conditional.select("customer_name", "total_spend", "segment"))
+
+#  TASK 2
+segment_count = df_conditional.groupBy("segment").agg(F.count("customer_id").alias("customer_count"))
+display(segment_count)
+
+#  TASK 3
+quantiles = df.approxQuantile("total_spend", [0.33, 0.66], 0)
+q1 = quantiles[0]
+q2 = quantiles[1]
+df_quantile = df.withColumn(
+    "segment_quantile",
+    F.when(F.col("total_spend") <= q1, "Bronze")
+     .when((F.col("total_spend") > q1) & (F.col("total_spend") <= q2), "Silver")
+     .otherwise("Gold")
+)
+display(df_quantile.select("customer_name", "total_spend", "segment_quantile")
+
+#other methods
+#Bucketizer Method
+splits = [-float("inf"), 50, 100, float("inf")]
+
+bucketizer = Bucketizer(
+    splits=splits,
+    inputCol="total_spend",
+    outputCol="bucket"
+)
+
+df_bucket = bucketizer.transform(df)
+
+df_bucket = df_bucket.withColumn(
+    "segment_bucket",
+    F.when(F.col("bucket") == 0, "Bronze")
+     .when(F.col("bucket") == 1, "Silver")
+     .otherwise("Gold")
+)
+display(df_bucket.select("customer_name", "total_spend", "segment_bucket"))
+
+#Window-based Ranking
+window = Window.orderBy("total_spend")
+
+df_window = df.withColumn("rank_pct", percent_rank().over(window))
+
+df_window = df_window.withColumn(
+    "segment_rank",
+    F.when(F.col("rank_pct") <= 0.33, "Bronze")
+     .when(F.col("rank_pct") <= 0.66, "Silver")
+     .otherwise("Gold")
+)
+
+display(df_window.select("customer_name", "total_spend", "rank_pct", "segment_rank"))
+
+#  TASK 4: Compare Methods
+comparison = df_conditional \
+    .join(df_quantile.select("customer_id", "segment_quantile"), "customer_id") \
+    .join(df_bucket.select("customer_id", "segment_bucket"), "customer_id") \
+    .join(df_window.select("customer_id", "segment_rank"), "customer_id")
+
+display(comparison.select(
+    "customer_name",
+    "total_spend",
+    "segment",
+    "segment_quantile",
+    "segment_bucket",
+    "segment_rank"
+))
+
+#task 5:
+Most commonly useful: Conditional Logic (when())
+
+ Why?
+Easy to understand
+Based on business rules
+Simple to implement
+Preferred in real projects
+
+Example:
+“Customers spending >10000 are always Gold” (fixed rule)

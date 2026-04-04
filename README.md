@@ -52,6 +52,7 @@ Faced issues with null values, incorrect data types (string to numeric), writing
 
 
 ---> Phase 5:
+
 📚 Topics Covered:
 Databricks setup, working with real-world Olist dataset, data ingestion from DBFS, schema validation, joins to build a fact table, aggregations, window functions (ranking & running totals), customer segmentation, and end-to-end data pipeline in PySpark.
 

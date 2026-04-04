@@ -49,3 +49,14 @@ Faced issues with null values, incorrect data types (string to numeric), writing
 ✅ Key Learnings: Learned how to build a complete business pipeline from raw data to insights, perform data cleaning before processing, calculate metrics like daily sales, city-wise revenue, and customer spend, and apply business logic for segmentation (Gold, Silver, Bronze). Also understood how to combine multiple transformations into a final reporting table and save outputs. and also ddid it using multiple bucketing/segmentation methods
 
 ⚠️ Challenges: Faced issues with handling null keys before joins, deciding correct join order, managing duplicates and invalid data, writing aggregation logic for multiple tasks, and combining all outputs into a single final dataset.
+
+
+---> Phase 5:
+📚 Topics Covered:
+Databricks setup, working with real-world Olist dataset, data ingestion from DBFS, schema validation, joins to build a fact table, aggregations, window functions (ranking & running totals), customer segmentation, and end-to-end data pipeline in PySpark.
+
+✅ Key Learnings:
+Learned how to upload and manage data in Databricks, create a unified dataset (fact_orders) using joins, perform aggregations and advanced analytics using window functions, and build a complete pipeline from raw data to final reporting. Also understood real-world concepts like fact tables and customer segmentation.
+
+⚠️ Challenges:
+Faced issues with understanding table relationships, missing columns like product category, managing file paths in Databricks, writing correct join conditions, and using window functions properly for ranking and cumulative calculations.

@@ -99,16 +99,3 @@ The following outputs were generated:
 4. Analytics → Apply aggregations and window functions
 5. Reporting → Generate final dataset
 
----
-
-🔹 **Files in this Folder**
-
-• solution.py / notebook → PySpark implementation in databricks
-• phase_5_starter.py → python notebook
-• phase5_databricks_olist.pdf  → instructions
-• pyspark queries
-• dataset files → Olist CSV files
-• outputs/ → Output screenshots
-• README.md → Project documentation
-
----
